@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-// Base Character Class
 abstract class Character {
     private String name;
     private int level;
@@ -78,7 +77,6 @@ abstract class Character {
     public abstract int getSkillCost();
 }
 
-// Warrior Class
 class Warrior extends Character {
     public Warrior(String name) {
         super(name, 1, 100, 30, 15);
@@ -110,7 +108,6 @@ class Warrior extends Character {
     }
 }
 
-// Mage Class
 class Mage extends Character {
     public Mage(String name) {
         super(name, 1, 80, 50, 20);
@@ -118,7 +115,7 @@ class Mage extends Character {
 
     @Override
     public void attack(Enemy enemy) {
-        int damage = getBaseAttack() + new Random().nextInt(30);  // Mage does baseAttack + random damage
+        int damage = getBaseAttack() + new Random().nextInt(30);  
         System.out.println(getName() + " casts a spell for " + damage + " damage!");
         enemy.takeDamage(damage);
     }
@@ -131,7 +128,7 @@ class Mage extends Character {
             return;
         }
         setMp(getMp() - skillCost);
-        int damage = getBaseAttack() + new Random().nextInt(50);  // Fireball deals 2x base attack + more random damage
+        int damage = getBaseAttack() + new Random().nextInt(50);
         System.out.println(getName() + " casts Fireball for " + damage + " damage!");
         enemy.takeDamage(damage);
     }
@@ -142,7 +139,6 @@ class Mage extends Character {
     }
 }
 
-// Archer Class
 class Archer extends Character {
     public Archer(String name) {
         super(name, 1, 90, 40, 18);
@@ -175,7 +171,6 @@ class Archer extends Character {
     }
 }
 
-// Enemy Class
 class Enemy {
     private String type;
     private int hp;
@@ -244,7 +239,6 @@ class Enemy {
     }
 }
 
-// Item Class
 class Item {
     private String name;
     private String type;
